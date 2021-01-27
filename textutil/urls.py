@@ -27,14 +27,24 @@ from . import views
 # ]
 
 
+# now using sinmple method
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', views.index, name="index"),
+#     path('rmpunc', views.rmpunc, name="rmpunc"),
+#     path('capfirst', views.capfirst, name="capfirst"),
+#     path('newlineremove', views.newlineremove, name="newlineremove"),
+#     path('spaceremover', views.spaceremover, name="spaceremover"),
+#     path('charcount', views.charcount, name="charcount")
+#
+# ]
+
+
+# now use diffrent method and givee only one output
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
-    path('rmpunc', views.rmpunc, name="rmpunc"),
-    path('capfirst', views.capfirst, name="capfirst"),
-    path('newlineremove', views.newlineremove, name="newlineremove"),
-    path('spaceremover', views.spaceremover, name="spaceremover"),
-    path('charcount', views.charcount, name="charcount")
+    path('analyze', views.analyze, name="analyze")
 
 ]
