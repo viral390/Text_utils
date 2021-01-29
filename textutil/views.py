@@ -7,10 +7,10 @@ def index(request):
     # return HttpResponse("hello")
 
 def analyze(request):
-    djtext = request.GET.get("text",'default')
-    rmpunc = request.GET.get('rmpunc','off')
-    fullcaps=request.GET.get('fullcaps','off')
-    newlineremover =request.GET.get('newlineremover','off')
+    djtext = request.POST.get("text",'default')
+    rmpunc = request.POST.get('rmpunc','off')
+    fullcaps=request.POST.get('fullcaps','off')
+    newlineremover =request.POST.get('newlineremover','off')
 
     if rmpunc == "on":
         punctuations = '''!()-{}'"[]:;/?<>,.@#$%^&*~'''
@@ -35,7 +35,7 @@ def analyze(request):
     elif(newlineremover == "on"):
         analyzed = ""
         for char in djtext:
-            if char != "\n":
+            if char != "\n" and char !="\r":
                 analyzed = analyzed + char.upper()
         param = {'purpose': 'remove new lines', 'analyzed_text': analyzed}
 
